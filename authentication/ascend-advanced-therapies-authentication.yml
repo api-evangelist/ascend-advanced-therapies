@@ -1,0 +1,50 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.ascend-adv.com/wp-json/
+docs: https://www.ascend-adv.com/wp-admin/authorize-application.php
+note: >-
+  Upgraded from derived to searched: the live WordPress REST discovery document at
+  https://www.ascend-adv.com/wp-json/ advertises the supported authentication method directly in its
+  `authentication` block. Anonymous access was verified against every read operation captured in
+  openapi/ascend-advanced-therapies-wp-rest-openapi.yml (all returned HTTP 200); privileged routes
+  such as /wp/v2/settings and /wp/v2/block-types returned HTTP 401 anonymously.
+summary:
+  types:
+  - http
+  http_schemes:
+  - basic
+  anonymous_read: true
+  oauth2_flows: []
+  api_key_in: []
+schemes:
+- name: applicationPassword
+  type: http
+  scheme: basic
+  description: >-
+    WordPress Application Passwords. Credentials are a WordPress username plus a generated
+    application password, presented as HTTP Basic over TLS. Required only for write operations and
+    for privileged reads; the entire public content surface is readable without credentials.
+  authorization_url: https://www.ascend-adv.com/wp-admin/authorize-application.php
+  advertised_at: https://www.ascend-adv.com/wp-json/
+  sources:
+  - openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+  - https://www.ascend-adv.com/wp-json/
+evidence:
+- source: https://www.ascend-adv.com/wp-json/
+  field: authentication.application-passwords.endpoints.authorization
+  value: https://www.ascend-adv.com/wp-admin/authorize-application.php
+- probe: GET /wp/v2/posts?per_page=1
+  status: 200
+  anonymous: true
+- probe: GET /wp/v2/settings
+  status: 401
+  anonymous: true
+  body_code: rest_forbidden
+- probe: GET /wp/v2/block-types
+  status: 401
+  anonymous: true
+unsupported:
+- oauth2
+- openIdConnect
+- mutualTLS
+- apiKey
