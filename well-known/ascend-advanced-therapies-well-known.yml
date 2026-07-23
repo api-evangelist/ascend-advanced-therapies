@@ -1,0 +1,38 @@
+generated: '2026-07-19'
+method: searched
+source: live HTTP probes
+note: >-
+  Every standard discovery document was probed on the single production host and returned 404.
+  Ascend Advanced Therapies publishes no /.well-known/ discovery surface, no security.txt, and no
+  llms.txt. This is a recorded negative result, not a gap in the probe. The site does publish
+  robots.txt, and the WordPress REST API exposes its own discovery document at /wp-json/ (200),
+  which serves the role a /.well-known/api-catalog otherwise would.
+host: https://www.ascend-adv.com
+documents:
+- path: /.well-known/security.txt
+  standard: RFC 9116
+  status: 404
+- path: /.well-known/openid-configuration
+  standard: OpenID Connect Discovery 1.0
+  status: 404
+- path: /.well-known/oauth-authorization-server
+  standard: RFC 8414
+  status: 404
+- path: /.well-known/api-catalog
+  standard: RFC 9727
+  status: 404
+- path: /.well-known/ai-plugin.json
+  standard: OpenAI plugin manifest
+  status: 404
+- path: /llms.txt
+  standard: llms.txt
+  status: 404
+- path: /robots.txt
+  standard: Robots Exclusion Protocol
+  status: 200
+- path: /wp-json/
+  standard: WordPress REST API discovery
+  status: 200
+  note: >-
+    De facto API catalog for this host: returns site identity, 12 registered namespaces, the
+    supported authentication methods, and an index of 328 routes.

@@ -1,0 +1,130 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+note: >-
+  Entity graph derived from the OpenAPI schemas and the id-reference fields and `_links` relations
+  observed in live responses from https://www.ascend-adv.com/wp-json. Identifiers are integers;
+  there are no prefixed or typed ids in this data model.
+identifiers:
+  style: integer
+  scoped_by: content type
+  detail: >-
+    Every entity is keyed by an integer `id` unique within its WordPress object table. Posts, pages,
+    media, and job openings share one id space (the posts table); categories and tags share another
+    (the terms table).
+entities:
+- name: Post
+  rest_base: posts
+  label: News & Insights
+  description: Published articles, blogs, news items, and webinar entries.
+  count_observed: 55
+  key_fields: [id, slug, date, modified, status, link, title, content, excerpt]
+- name: Page
+  rest_base: pages
+  description: Static site pages such as About Us, Our Expertise, Careers, and Contact Us.
+  key_fields: [id, slug, status, link, title, content, parent, menu_order]
+- name: MediaItem
+  rest_base: media
+  description: Media library attachments (images, documents such as posters and white papers).
+  key_fields: [id, slug, source_url, mime_type, media_type, alt_text, post]
+- name: JobOpening
+  rest_base: awsm_job_openings
+  description: Career listings, a custom post type registered by the job-listings plugin.
+  key_fields: [id, slug, status, link, title, content, excerpt, meta, acf]
+- name: Term
+  rest_base: categories, tags
+  description: Taxonomy terms. The `category` taxonomy applies to posts (news, articles, blogs, webinar); `post_tag` is registered but currently applies to no types.
+  key_fields: [id, slug, name, taxonomy, parent, count]
+- name: User
+  rest_base: users
+  description: Authoring users. Exposed anonymously in the reduced `view` context.
+  key_fields: [id, name, slug, link]
+- name: Comment
+  rest_base: comments
+  description: Comment records. The route is anonymously readable; the site publishes no comment threads.
+  key_fields: [id, post, parent, author, content, date]
+relationships:
+- from: Post
+  to: User
+  cardinality: belongs_to
+  via: author
+  evidence: integer id field `author`; `_links.author`
+- from: Post
+  to: MediaItem
+  cardinality: has_one
+  via: featured_media
+  evidence: integer id field `featured_media`; `_links.wp:featuredmedia`
+- from: Post
+  to: Term
+  cardinality: has_many
+  via: categories
+  evidence: integer id array `categories`; `_links.wp:term`
+- from: Post
+  to: Term
+  cardinality: has_many
+  via: tags
+  evidence: integer id array `tags`; `_links.wp:term`
+- from: Post
+  to: Comment
+  cardinality: has_many
+  via: post
+  evidence: '`_links.replies`; Comment.post is the inverse reference'
+- from: Page
+  to: Page
+  cardinality: belongs_to
+  via: parent
+  evidence: integer id field `parent` (page hierarchy); `_links.up`
+- from: Page
+  to: User
+  cardinality: belongs_to
+  via: author
+  evidence: integer id field `author`
+- from: Page
+  to: MediaItem
+  cardinality: has_one
+  via: featured_media
+  evidence: integer id field `featured_media`
+- from: MediaItem
+  to: Post
+  cardinality: belongs_to
+  via: post
+  evidence: integer id field `post` (attachment parent)
+- from: JobOpening
+  to: User
+  cardinality: belongs_to
+  via: author
+  evidence: integer id field `author` observed in a live job-opening response
+- from: Term
+  to: Term
+  cardinality: belongs_to
+  via: parent
+  evidence: integer id field `parent` on hierarchical taxonomies (category)
+- from: Comment
+  to: Post
+  cardinality: belongs_to
+  via: post
+  evidence: integer id field `post`
+- from: Comment
+  to: Comment
+  cardinality: belongs_to
+  via: parent
+  evidence: integer id field `parent` (threading)
+extension_bags:
+  detail: >-
+    Custom attributes are not modelled as first-class entities. They live in loosely typed bags on
+    the content entities.
+  fields:
+  - name: meta
+    on: [Post, Page, JobOpening]
+    description: Registered WordPress post meta.
+  - name: acf
+    on: [Post, JobOpening]
+    description: Advanced Custom Fields payload; carries role attributes for job openings.
+  - name: yoast_head_json
+    on: [Post, Page, JobOpening]
+    description: Yoast SEO metadata.
+traversal:
+  detail: >-
+    Related resources are reachable without extra requests by passing `_embed`, which inlines the
+    `_links` targets (author, featured media, terms, replies) into an `_embedded` object.
+render: null

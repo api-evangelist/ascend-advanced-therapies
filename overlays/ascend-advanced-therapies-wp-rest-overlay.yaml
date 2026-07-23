@@ -1,0 +1,64 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Ascend Advanced Therapies Content API
+  version: 1.0.0
+extends: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+x-apis-io-provenance:
+  generated: '2026-07-19'
+  method: generated
+  source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+  note: >-
+    Captures the API Evangelist enrichment metadata applied on top of the derived specification.
+    The underlying OpenAPI is itself derived from live route discovery, not published by the
+    provider; this overlay records that provenance and the cross-links to sibling artifacts without
+    mutating the specification.
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: ascend-advanced-therapies
+    x-apievangelist-provider-name: Ascend Advanced Therapies
+    x-apievangelist-industry: Life Sciences
+    x-apievangelist-api-class: site-content
+    x-apievangelist-provider-published: false
+    x-apievangelist-discovery-source: https://www.ascend-adv.com/wp-json/
+    x-apievangelist-artifacts:
+      authentication: authentication/ascend-advanced-therapies-authentication.yml
+      conventions: conventions/ascend-advanced-therapies-conventions.yml
+      errors: errors/ascend-advanced-therapies-problem-types.yml
+      lifecycle: lifecycle/ascend-advanced-therapies-lifecycle.yml
+      conformance: conformance/ascend-advanced-therapies-conformance.yml
+      data_model: data-model/ascend-advanced-therapies-data-model.yml
+      mcp: mcp/ascend-advanced-therapies-mcp.yml
+      skills: skills/_index.yml
+      well_known: well-known/ascend-advanced-therapies-well-known.yml
+      domain_security: security/ascend-advanced-therapies-domain-security.yml
+- target: $.info
+  update:
+    x-agentic-access:
+      default-action-class: connected
+      default-consequence: read
+      note: >-
+        The documented surface is entirely anonymous, read-only, and non-transactional. No operation
+        carries physical or safety-critical consequence.
+- target: $.paths.*.get
+  update:
+    x-apievangelist-safe: true
+    x-apievangelist-anonymous: true
+    x-apievangelist-verified-status: 200
+- target: $.paths['/wp/v2/awsm_job_openings'].get
+  update:
+    x-apievangelist-use-case: >-
+      Careers aggregation. This is the only route on the host that exposes company-operational data
+      rather than marketing content, and it is the most useful surface for an agent tracking hiring
+      at Ascend Advanced Therapies.
+- target: $.paths['/wp/v2/posts'].get
+  update:
+    x-apievangelist-use-case: >-
+      Company news monitoring. Pairs with the RSS feed at https://www.ascend-adv.com/feed/ but
+      returns structured JSON with taxonomy ids and full rendered content.
+- target: $.components.securitySchemes.applicationPassword
+  update:
+    x-apievangelist-scope: write-only
+    x-apievangelist-note: >-
+      Credentials are never required for any operation in this specification; they gate the
+      undocumented write surface only.

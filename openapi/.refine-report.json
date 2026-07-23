@@ -1,0 +1,28 @@
+{
+  "provider": "ascend-advanced-therapies",
+  "sources": [
+    "ascend-advanced-therapies-careers-api-openapi.yml",
+    "ascend-advanced-therapies-discovery-api-openapi.yml",
+    "ascend-advanced-therapies-media-api-openapi.yml",
+    "ascend-advanced-therapies-oembed-api-openapi.yml",
+    "ascend-advanced-therapies-pages-api-openapi.yml",
+    "ascend-advanced-therapies-posts-api-openapi.yml",
+    "ascend-advanced-therapies-search-api-openapi.yml",
+    "ascend-advanced-therapies-taxonomy-api-openapi.yml"
+  ],
+  "outputs": [
+    "ascend-advanced-therapies-careers-api-openapi.yml",
+    "ascend-advanced-therapies-discovery-api-openapi.yml",
+    "ascend-advanced-therapies-media-api-openapi.yml",
+    "ascend-advanced-therapies-oembed-api-openapi.yml",
+    "ascend-advanced-therapies-pages-api-openapi.yml",
+    "ascend-advanced-therapies-posts-api-openapi.yml",
+    "ascend-advanced-therapies-search-api-openapi.yml",
+    "ascend-advanced-therapies-taxonomy-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

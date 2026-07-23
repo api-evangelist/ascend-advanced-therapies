@@ -1,0 +1,780 @@
+openapi: 3.1.0
+info:
+  title: Ascend Advanced Therapies Content API (WordPress REST)
+  version: wp/v2
+  summary: Public read surface of the Ascend Advanced Therapies corporate site content API.
+  description: >-
+    Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the
+    core WordPress REST API enabled and anonymously readable. This specification was DERIVED by
+    discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route
+    for anonymous access; only routes verified to return HTTP 200 without credentials are documented
+    here as public operations. The surface exposes the company's News & Insights posts, site pages,
+    media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata,
+    and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations
+    exist on the same routes but require authentication (WordPress Application Passwords) and are not
+    documented here. This is not a product API offered by Ascend to customers; it is the content API
+    of their marketing site, captured for discovery purposes.
+  contact:
+    name: Ascend Advanced Therapies
+    url: https://www.ascend-adv.com/contact-us/
+    email: hello@www.ascend-adv.com
+  x-apis-io-provenance:
+    method: derived
+    source: https://www.ascend-adv.com/wp-json/
+    derived_on: '2026-07-19'
+    note: >-
+      Routes enumerated from the live wp-json discovery document (328 routes across 12 namespaces);
+      each operation below was probed anonymously and returned 200. Schemas reflect fields observed
+      in live responses. No fabricated operations.
+servers:
+  - url: https://www.ascend-adv.com/wp-json
+    description: Production
+tags:
+  - name: Posts
+    description: News & Insights articles, blogs, and webinar entries.
+  - name: Pages
+    description: Static site pages.
+  - name: Media
+    description: Media library attachments.
+  - name: Taxonomy
+    description: Categories and tags.
+  - name: Careers
+    description: Job openings custom post type.
+  - name: Discovery
+    description: Site, content-type, and taxonomy metadata.
+  - name: Search
+    description: Cross-content site search.
+  - name: oEmbed
+    description: oEmbed discovery for site URLs.
+paths:
+  /:
+    get:
+      tags: [Discovery]
+      operationId: getApiIndex
+      summary: Get the API index
+      description: >-
+        Returns the WordPress REST API discovery document: site name, description, home URL,
+        registered namespaces, supported authentication methods, and the full route index.
+      responses:
+        '200':
+          description: API discovery document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name: { type: string }
+                  description: { type: string }
+                  url: { type: string, format: uri }
+                  home: { type: string, format: uri }
+                  namespaces:
+                    type: array
+                    items: { type: string }
+                  authentication: { type: object }
+                  routes: { type: object }
+              example:
+                name: Ascend
+                description: Building the Future of Advanced Therapies
+                url: https://www.ascend-adv.com
+                home: https://www.ascend-adv.com
+                namespaces: [oembed/1.0, wp/v2, yoast/v1]
+  /wp/v2/posts:
+    get:
+      tags: [Posts]
+      operationId: listPosts
+      summary: List News & Insights posts
+      description: >-
+        Returns a paginated collection of published posts. The site's `post` type is labelled
+        "News & Insights" and carries the news, articles, blogs, and webinar categories.
+        Total count and page count are returned in the X-WP-Total and X-WP-TotalPages headers.
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/order'
+        - $ref: '#/components/parameters/orderby'
+        - name: categories
+          in: query
+          description: Limit results to items assigned to the given category IDs.
+          schema:
+            type: array
+            items: { type: integer }
+        - name: tags
+          in: query
+          description: Limit results to items assigned to the given tag IDs.
+          schema:
+            type: array
+            items: { type: integer }
+        - name: slug
+          in: query
+          description: Limit results to items with one of the given slugs.
+          schema:
+            type: array
+            items: { type: string }
+        - $ref: '#/components/parameters/context'
+      responses:
+        '200':
+          description: A page of posts
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+            Link:
+              $ref: '#/components/headers/LinkPagination'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Post' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/posts/{id}:
+    get:
+      tags: [Posts]
+      operationId: getPost
+      summary: Get a post by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+        - $ref: '#/components/parameters/context'
+      responses:
+        '200':
+          description: The post
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Post' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/pages:
+    get:
+      tags: [Pages]
+      operationId: listPages
+      summary: List site pages
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/context'
+      responses:
+        '200':
+          description: A page of pages
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Page' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/pages/{id}:
+    get:
+      tags: [Pages]
+      operationId: getPage
+      summary: Get a page by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+        - $ref: '#/components/parameters/context'
+      responses:
+        '200':
+          description: The page
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Page' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/media:
+    get:
+      tags: [Media]
+      operationId: listMedia
+      summary: List media attachments
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+        - name: media_type
+          in: query
+          description: Limit results to a media type.
+          schema:
+            type: string
+            enum: [image, video, text, application, audio]
+      responses:
+        '200':
+          description: A page of media items
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/MediaItem' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/media/{id}:
+    get:
+      tags: [Media]
+      operationId: getMediaItem
+      summary: Get a media attachment by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+      responses:
+        '200':
+          description: The media item
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/MediaItem' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/categories:
+    get:
+      tags: [Taxonomy]
+      operationId: listCategories
+      summary: List categories
+      description: >-
+        Lists the `category` taxonomy terms applied to posts. On this site the categories include
+        news, articles, blogs, and webinar.
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+        - name: slug
+          in: query
+          schema:
+            type: array
+            items: { type: string }
+      responses:
+        '200':
+          description: A page of categories
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Term' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/categories/{id}:
+    get:
+      tags: [Taxonomy]
+      operationId: getCategory
+      summary: Get a category by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+      responses:
+        '200':
+          description: The category term
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Term' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/tags:
+    get:
+      tags: [Taxonomy]
+      operationId: listTags
+      summary: List tags
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+      responses:
+        '200':
+          description: A page of tags
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/Term' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/tags/{id}:
+    get:
+      tags: [Taxonomy]
+      operationId: getTag
+      summary: Get a tag by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+      responses:
+        '200':
+          description: The tag term
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Term' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/awsm_job_openings:
+    get:
+      tags: [Careers]
+      operationId: listJobOpenings
+      summary: List job openings
+      description: >-
+        Lists the `awsm_job_openings` custom post type that backs the Careers section of
+        ascend-adv.com. Items carry the standard post envelope plus `meta` and `acf` custom
+        field bags holding the role attributes.
+      parameters:
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - $ref: '#/components/parameters/search'
+        - $ref: '#/components/parameters/order'
+        - $ref: '#/components/parameters/orderby'
+      responses:
+        '200':
+          description: A page of job openings
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/JobOpening' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/awsm_job_openings/{id}:
+    get:
+      tags: [Careers]
+      operationId: getJobOpening
+      summary: Get a job opening by ID
+      parameters:
+        - $ref: '#/components/parameters/idPath'
+      responses:
+        '200':
+          description: The job opening
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/JobOpening' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/search:
+    get:
+      tags: [Search]
+      operationId: searchContent
+      summary: Search site content
+      description: Cross-content-type search returning lightweight result stubs.
+      parameters:
+        - name: search
+          in: query
+          required: true
+          description: The search term.
+          schema: { type: string }
+        - $ref: '#/components/parameters/page'
+        - $ref: '#/components/parameters/perPage'
+        - name: type
+          in: query
+          description: Limit results to a search object type.
+          schema:
+            type: string
+            enum: [post, term, post-format]
+      responses:
+        '200':
+          description: Search results
+          headers:
+            X-WP-Total:
+              $ref: '#/components/headers/XWPTotal'
+            X-WP-TotalPages:
+              $ref: '#/components/headers/XWPTotalPages'
+          content:
+            application/json:
+              schema:
+                type: array
+                items: { $ref: '#/components/schemas/SearchResult' }
+        '400':
+          $ref: '#/components/responses/InvalidParam'
+  /wp/v2/types:
+    get:
+      tags: [Discovery]
+      operationId: listTypes
+      summary: List content types
+      description: >-
+        Returns every registered post type with its REST base and namespace. Used to discover
+        custom post types such as `awsm_job_openings`.
+      responses:
+        '200':
+          description: Map of content types keyed by type name
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: { $ref: '#/components/schemas/ContentType' }
+  /wp/v2/types/{type}:
+    get:
+      tags: [Discovery]
+      operationId: getType
+      summary: Get a content type
+      parameters:
+        - name: type
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: The content type
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/ContentType' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/taxonomies:
+    get:
+      tags: [Discovery]
+      operationId: listTaxonomies
+      summary: List taxonomies
+      responses:
+        '200':
+          description: Map of taxonomies keyed by taxonomy name
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: { $ref: '#/components/schemas/Taxonomy' }
+  /wp/v2/taxonomies/{taxonomy}:
+    get:
+      tags: [Discovery]
+      operationId: getTaxonomy
+      summary: Get a taxonomy
+      parameters:
+        - name: taxonomy
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: The taxonomy
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Taxonomy' }
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /wp/v2/statuses:
+    get:
+      tags: [Discovery]
+      operationId: listStatuses
+      summary: List post statuses
+      responses:
+        '200':
+          description: Map of statuses keyed by status name
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: { type: object }
+  /oembed/1.0/embed:
+    get:
+      tags: [oEmbed]
+      operationId: getOembed
+      summary: Get an oEmbed response for a site URL
+      parameters:
+        - name: url
+          in: query
+          required: true
+          description: The URL on this site to embed.
+          schema: { type: string, format: uri }
+        - name: format
+          in: query
+          schema:
+            type: string
+            enum: [json, xml]
+            default: json
+        - name: maxwidth
+          in: query
+          schema: { type: integer }
+      responses:
+        '200':
+          description: oEmbed document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version: { type: string }
+                  provider_name: { type: string }
+                  provider_url: { type: string, format: uri }
+                  title: { type: string }
+                  type: { type: string }
+                  html: { type: string }
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: >-
+        WordPress Application Passwords. Advertised by the API index at
+        `authentication.application-passwords`, authorized at
+        https://www.ascend-adv.com/wp-admin/authorize-application.php. Required only for write
+        operations and for privileged reads (for example /wp/v2/settings, which returns 401
+        anonymously). All operations documented in this specification are anonymously readable.
+  parameters:
+    page:
+      name: page
+      in: query
+      description: Current page of the collection.
+      schema: { type: integer, minimum: 1, default: 1 }
+    perPage:
+      name: per_page
+      in: query
+      description: Maximum number of items to return per page.
+      schema: { type: integer, minimum: 1, maximum: 100, default: 10 }
+    search:
+      name: search
+      in: query
+      description: Limit results to those matching a string.
+      schema: { type: string }
+    order:
+      name: order
+      in: query
+      schema:
+        type: string
+        enum: [asc, desc]
+        default: desc
+    orderby:
+      name: orderby
+      in: query
+      schema:
+        type: string
+        enum: [date, id, include, title, slug, modified, relevance]
+        default: date
+    context:
+      name: context
+      in: query
+      description: Scope under which the request is made; determines fields present in the response.
+      schema:
+        type: string
+        enum: [view, embed, edit]
+        default: view
+    idPath:
+      name: id
+      in: path
+      required: true
+      description: Unique identifier for the resource.
+      schema: { type: integer }
+  headers:
+    XWPTotal:
+      description: Total number of items in the unpaginated collection.
+      schema: { type: integer }
+      example: 55
+    XWPTotalPages:
+      description: Total number of pages available at the current per_page size.
+      schema: { type: integer }
+      example: 55
+    LinkPagination:
+      description: RFC 8288 link relations for next/prev pages.
+      schema: { type: string }
+      example: <https://www.ascend-adv.com/wp-json/wp/v2/posts?per_page=1&page=2>; rel="next"
+  responses:
+    NotFound:
+      description: The requested resource does not exist.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example:
+            code: rest_post_invalid_id
+            message: Invalid post ID.
+            data: { status: 404 }
+    InvalidParam:
+      description: One or more query parameters failed validation.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example:
+            code: rest_invalid_param
+            message: 'Invalid parameter(s): per_page'
+            data:
+              status: 400
+              params:
+                per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
+    Unauthorized:
+      description: Authentication is required or the credentials lack the capability.
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example:
+            code: rest_forbidden
+            message: Sorry, you are not allowed to do that.
+            data: { status: 401 }
+  schemas:
+    Error:
+      type: object
+      description: >-
+        The WordPress REST error envelope. Not RFC 9457 problem+json; errors are returned as
+        application/json with a machine-readable `code`, a human `message`, and a `data` object
+        carrying the HTTP status and any per-parameter validation details.
+      required: [code, message, data]
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+          examples: [rest_no_route, rest_post_invalid_id, rest_invalid_param, rest_forbidden]
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          properties:
+            status: { type: integer }
+            params:
+              type: object
+              additionalProperties: { type: string }
+            details: { type: object }
+    RenderedText:
+      type: object
+      properties:
+        rendered: { type: string }
+        protected: { type: boolean }
+    Post:
+      type: object
+      properties:
+        id: { type: integer }
+        date: { type: string, format: date-time }
+        date_gmt: { type: string, format: date-time }
+        guid: { $ref: '#/components/schemas/RenderedText' }
+        modified: { type: string, format: date-time }
+        modified_gmt: { type: string, format: date-time }
+        slug: { type: string }
+        status: { type: string }
+        type: { type: string }
+        link: { type: string, format: uri }
+        title: { $ref: '#/components/schemas/RenderedText' }
+        content: { $ref: '#/components/schemas/RenderedText' }
+        excerpt: { $ref: '#/components/schemas/RenderedText' }
+        author: { type: integer, description: ID of the authoring user. }
+        featured_media: { type: integer, description: ID of the featured media attachment. }
+        categories:
+          type: array
+          description: Category term IDs.
+          items: { type: integer }
+        tags:
+          type: array
+          description: Tag term IDs.
+          items: { type: integer }
+        meta: { type: object }
+        acf: { type: object, description: Advanced Custom Fields payload. }
+        yoast_head_json: { type: object, description: Yoast SEO metadata. }
+        _links: { type: object, description: HAL-style link relations to related resources. }
+    Page:
+      type: object
+      properties:
+        id: { type: integer }
+        date: { type: string, format: date-time }
+        modified: { type: string, format: date-time }
+        slug: { type: string }
+        status: { type: string }
+        type: { type: string }
+        link: { type: string, format: uri }
+        title: { $ref: '#/components/schemas/RenderedText' }
+        content: { $ref: '#/components/schemas/RenderedText' }
+        excerpt: { $ref: '#/components/schemas/RenderedText' }
+        parent: { type: integer, description: ID of the parent page. }
+        author: { type: integer }
+        featured_media: { type: integer }
+        menu_order: { type: integer }
+        _links: { type: object }
+    MediaItem:
+      type: object
+      properties:
+        id: { type: integer }
+        date: { type: string, format: date-time }
+        slug: { type: string }
+        type: { type: string }
+        link: { type: string, format: uri }
+        title: { $ref: '#/components/schemas/RenderedText' }
+        author: { type: integer }
+        post: { type: integer, description: ID of the post this attachment is attached to. }
+        alt_text: { type: string }
+        caption: { $ref: '#/components/schemas/RenderedText' }
+        media_type: { type: string }
+        mime_type: { type: string }
+        source_url: { type: string, format: uri }
+        media_details: { type: object }
+        _links: { type: object }
+    Term:
+      type: object
+      properties:
+        id: { type: integer }
+        count: { type: integer }
+        description: { type: string }
+        link: { type: string, format: uri }
+        name: { type: string }
+        slug: { type: string }
+        taxonomy: { type: string }
+        parent: { type: integer }
+        _links: { type: object }
+    JobOpening:
+      type: object
+      description: An `awsm_job_openings` custom post type item backing the Careers listings.
+      properties:
+        id: { type: integer }
+        date: { type: string, format: date-time }
+        date_gmt: { type: string, format: date-time }
+        guid: { $ref: '#/components/schemas/RenderedText' }
+        modified: { type: string, format: date-time }
+        modified_gmt: { type: string, format: date-time }
+        slug: { type: string }
+        status: { type: string }
+        type: { type: string }
+        link: { type: string, format: uri }
+        title: { $ref: '#/components/schemas/RenderedText' }
+        content: { $ref: '#/components/schemas/RenderedText' }
+        excerpt: { $ref: '#/components/schemas/RenderedText' }
+        author: { type: integer }
+        template: { type: string }
+        meta: { type: object, description: Registered post meta for the job listing. }
+        class_list:
+          type: array
+          items: { type: string }
+        acf: { type: object, description: Advanced Custom Fields payload for the role. }
+        yoast_head_json: { type: object }
+        _links: { type: object }
+    SearchResult:
+      type: object
+      properties:
+        id: { type: integer }
+        title: { type: string }
+        url: { type: string, format: uri }
+        type: { type: string }
+        subtype: { type: string }
+        _links: { type: object }
+    ContentType:
+      type: object
+      properties:
+        description: { type: string }
+        hierarchical: { type: boolean }
+        name: { type: string }
+        slug: { type: string }
+        taxonomies:
+          type: array
+          items: { type: string }
+        rest_base: { type: string }
+        rest_namespace: { type: string }
+        _links: { type: object }
+    Taxonomy:
+      type: object
+      properties:
+        description: { type: string }
+        hierarchical: { type: boolean }
+        name: { type: string }
+        slug: { type: string }
+        rest_base: { type: string }
+        rest_namespace: { type: string }
+        types:
+          type: array
+          items: { type: string }
+        _links: { type: object }

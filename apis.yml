@@ -1,8 +1,30 @@
 aid: ascend-advanced-therapies
 name: Ascend Advanced Therapies
-description: Ascend Advanced Therapies is a company surfaced as a portfolio company of dcvc and added
-  to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Ascend Advanced Therapies is a gene-to-GMP contract development and manufacturing organization
+  (CDMO) for advanced therapies, specializing in adeno-associated virus (AAV) vector development and
+  manufacture for gene therapies, immunotherapies, oncolytics, and vaccines. Formed in 2023 when
+  expert teams merged behind more than $130M of funding, and aligned with ABL, Inc. since late 2024,
+  Ascend operates GMP manufacturing, aseptic fill-finish, and analytical facilities in Rockville,
+  Maryland and Alachua, Florida alongside European capacity. Services span process development,
+  gene therapy formulation, scalable manufacturing, in-house fill-finish, GMP QC testing, long-read
+  NGS for viral vectors, and potency assay development, built on its EpyQ production system and
+  proprietary AAV yield enhancers. Ascend is a life-science manufacturer rather than a software
+  vendor and publishes no commercial product API; the only machine-readable interface it exposes is
+  the WordPress REST content API behind its corporate website, captured here for discovery.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.ascend-adv.com/wp-content/uploads/2025/02/cropped-favicon-192x192.png
 url: https://raw.githubusercontent.com/api-evangelist/ascend-advanced-therapies/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +34,226 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Biotechnology
+- Gene Therapy
+- Cell Therapy
+- Contract Manufacturing
+- Life Sciences
+- Pharmaceuticals
+- CDMO
+- AAV
+apis:
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-careers-api
+  name: Ascend Advanced Therapies Careers API
+  description: Job openings custom post type.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Careers
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-careers-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-discovery-api
+  name: Ascend Advanced Therapies Discovery API
+  description: Site, content-type, and taxonomy metadata.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Discovery
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-discovery-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-media-api
+  name: Ascend Advanced Therapies Media API
+  description: Media library attachments.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Media
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-media-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-oembed-api
+  name: Ascend Advanced Therapies oEmbed API
+  description: oEmbed discovery for site URLs.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - oEmbed
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-oembed-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-pages-api
+  name: Ascend Advanced Therapies Pages API
+  description: Static site pages.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-pages-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-posts-api
+  name: Ascend Advanced Therapies Posts API
+  description: News & Insights articles, blogs, and webinar entries.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Posts
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-posts-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-search-api
+  name: Ascend Advanced Therapies Search API
+  description: Cross-content site search.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-search-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-taxonomy-api
+  name: Ascend Advanced Therapies Taxonomy API
+  description: Categories and tags.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - Taxonomy
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-taxonomy-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+common:
+- type: Website
+  url: https://www.ascend-adv.com/
+- type: About
+  url: https://www.ascend-adv.com/about-us/
+- type: Blog
+  url: https://www.ascend-adv.com/news-insights/
+- type: BlogRSS
+  url: https://www.ascend-adv.com/feed/
+- type: Contact
+  url: https://www.ascend-adv.com/contact-us/
+- type: Careers
+  url: https://www.ascend-adv.com/careers/
+- type: TermsOfService
+  url: https://www.ascend-adv.com/terms-and-conditions/
+- type: PrivacyPolicy
+  url: https://www.ascend-adv.com/privacy-policy/
+- type: CookiePolicy
+  url: https://www.ascend-adv.com/cookie-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/ascend-advanced-therapies/
+- type: WellKnown
+  url: well-known/ascend-advanced-therapies-well-known.yml
+- type: DomainSecurity
+  url: security/ascend-advanced-therapies-domain-security.yml
+- type: LLMsTxt
+  url: llms/ascend-advanced-therapies-llms.txt
+x-enrichment:
+  date: '2026-07-19'
+  status: enriched
+  artifacts_added: 15
+  pass: local-v1
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

@@ -1,0 +1,60 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+searched: https://www.ascend-adv.com/
+note: >-
+  Ascend Advanced Therapies runs no developer program: there is no versioning policy, deprecation
+  policy, SLA, status page, or changelog for the content API, and no /.well-known/ discovery
+  surface. The facts below are what could be observed from the live API and the corporate site.
+  Recorded absences are honest negative results, so no StatusPage, Deprecation, or ChangeLog
+  pointers are emitted for this provider.
+versioning:
+  scheme: uri-namespace
+  current: wp/v2
+  policy_published: false
+  detail: >-
+    Version is the namespace segment of the path. Twelve namespaces are registered on the host
+    (oembed/1.0, wpe/cache-plugin/v1, wpe_sign_on_plugin/v1, akismet/v1, cky/v1, redirection/v1,
+    yoast/v1, google-site-kit/v1, wp/v2, wp-site-health/v1, wp-block-editor/v1, wp-abilities/v1);
+    only wp/v2 and oembed/1.0 carry the public content surface. Version cadence follows upstream
+    WordPress core, not a schedule Ascend publishes.
+  upstream: https://developer.wordpress.org/rest-api/
+deprecation:
+  policy_url: null
+  policy_published: false
+  sunset_header: false
+  deprecation_header: false
+  detail: No RFC 8594 Sunset or Deprecation headers were returned on any probed response.
+deprecated_operations: []
+sla:
+  url: null
+  uptime_target: null
+  published: false
+status_page:
+  url: null
+  found: false
+  detail: >-
+    No status page was found at status.ascend-adv.com or linked from the corporate site. The site is
+    hosted on WP Engine behind Cloudflare; neither provider's status page is a status page for
+    Ascend.
+changelog:
+  url: null
+  found: false
+  detail: >-
+    No API changelog. The corporate News & Insights feed (https://www.ascend-adv.com/feed/) is
+    company news, not a release log, and is not wired as a ChangeLog pointer.
+support:
+  contact_page: https://www.ascend-adv.com/contact-us/
+  email: hello@www.ascend-adv.com
+  detail: >-
+    General corporate contact only; there is no developer support channel, community, or issue
+    tracker for the content API.
+hosting:
+  platform: WordPress
+  managed_host: WP Engine
+  cdn: Cloudflare
+  evidence:
+  - header: x-powered-by
+    value: WP Engine
+  - header: server
+    value: cloudflare

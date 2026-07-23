@@ -1,0 +1,132 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+evidence_source: >-
+  Live response headers and error bodies observed against https://www.ascend-adv.com/wp-json on
+  2026-07-19. Conventions below are those of the WordPress REST API as implemented on this host;
+  Ascend Advanced Therapies publishes no developer documentation of its own.
+authentication:
+  style: http-basic
+  scheme: WordPress Application Passwords
+  anonymous_read: true
+  detail: >-
+    All documented read operations are anonymously accessible. Writes and privileged reads require
+    HTTP Basic credentials (WordPress user + application password) over TLS.
+  artifact: authentication/ascend-advanced-therapies-authentication.yml
+idempotency:
+  supported: false
+  detail: >-
+    No idempotency key header or parameter is offered. The public surface is read-only and safe by
+    HTTP method (GET only); the authenticated write surface provides no idempotency contract.
+    No Idempotency pointer is emitted for this provider.
+pagination:
+  style: page-number
+  params:
+  - name: page
+    default: 1
+    description: Current page of the collection.
+  - name: per_page
+    default: 10
+    minimum: 1
+    maximum: 100
+    description: Items per page; values outside 1-100 return a 400 rest_invalid_param.
+  response_headers:
+  - name: X-WP-Total
+    description: Total items in the unpaginated collection.
+    observed: '55'
+  - name: X-WP-TotalPages
+    description: Total pages at the current per_page size.
+    observed: '55'
+  - name: Link
+    standard: RFC 8288
+    description: rel="next" / rel="prev" pagination links.
+    observed: <https://www.ascend-adv.com/wp-json/wp/v2/posts?per_page=1&page=2>; rel="next"
+  cors_exposed_headers:
+  - X-WP-Total
+  - X-WP-TotalPages
+  - Link
+field_selection:
+  style: context-scopes
+  detail: >-
+    A `context` query parameter (view | embed | edit) selects the field set returned for a resource
+    rather than per-field selection. `_fields` is supported by WordPress core for sparse responses.
+  params:
+  - context
+  - _fields
+  embedding:
+    detail: >-
+      Every resource carries a `_links` object of HAL-style relations (author, wp:featuredmedia,
+      wp:term, replies, up). Passing `_embed` inlines those related resources into an `_embedded`
+      object, avoiding follow-up requests.
+    params:
+    - _embed
+metadata:
+  detail: >-
+    Custom data travels in two bags on content resources: `meta` (registered WordPress post meta)
+    and `acf` (Advanced Custom Fields). Job openings carry their role attributes there. SEO metadata
+    is exposed under `yoast_head_json`.
+  fields:
+  - meta
+  - acf
+  - yoast_head_json
+request_tracing:
+  supported: false
+  detail: >-
+    No request-id header is returned by the application. The edge does return Cloudflare `cf-ray`
+    and `cf-cache-status` values, which can be used for edge-level correlation only.
+  edge_headers:
+  - cf-ray
+  - cf-cache-status
+  - x-cache
+versioning:
+  scheme: uri-namespace
+  current: wp/v2
+  detail: >-
+    Versioning is by namespace segment in the path. Twelve namespaces are registered on this host;
+    the core content namespace is wp/v2. There is no header or date-based version negotiation and no
+    published version policy.
+  artifact: lifecycle/ascend-advanced-therapies-lifecycle.yml
+error_envelope:
+  format: wordpress-rest
+  rfc9457: false
+  media_type: application/json
+  shape:
+    code: Machine-readable error code string.
+    message: Human-readable message.
+    data.status: HTTP status code, repeated in the body.
+    data.params: Per-parameter validation messages (validation errors only).
+    data.details: Per-parameter structured error objects (validation errors only).
+  artifact: errors/ascend-advanced-therapies-problem-types.yml
+rate_limiting:
+  documented: false
+  headers_observed: []
+  detail: >-
+    No rate-limit headers are returned and no rate-limit policy is published. Responses are edge
+    cached (cache-control max-age=600, must-revalidate; x-cacheable: SHORT) behind Cloudflare and
+    WP Engine, which absorbs repeat traffic but is not a documented quota.
+caching:
+  cache_control: max-age=600, must-revalidate
+  validators:
+  - Last-Modified
+  edge:
+  - Cloudflare
+  - WP Engine
+  detail: Collection responses are cacheable for 10 minutes; Last-Modified is returned for validation.
+content_types:
+  request: application/json
+  response: application/json; charset=UTF-8
+cors:
+  enabled: true
+  allow_headers:
+  - Authorization
+  - X-WP-Nonce
+  - Content-Disposition
+  - Content-MD5
+  - Content-Type
+  expose_headers:
+  - X-WP-Total
+  - X-WP-TotalPages
+  - Link
+indexing:
+  x_robots_tag: noindex
+  detail: 'API responses are served with `x-robots-tag: noindex`.'

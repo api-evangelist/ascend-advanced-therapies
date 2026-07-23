@@ -1,0 +1,19 @@
+generated: '2026-07-19'
+method: generated
+source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+note: >-
+  Ascend Advanced Therapies publishes no AGENTS.md or provider-authored agent skills; a search of
+  the corporate site and its GitHub presence found none. These skills were generated from the
+  derived OpenAPI. Every operationId referenced was grepped against that specification and exists
+  verbatim. Both skills are read-only: the provider exposes no transactional surface.
+skills:
+- file: ascend-advanced-therapies-monitor-news-insights.md
+  name: Monitor Ascend Advanced Therapies News & Insights
+  description: Retrieve, filter by category, and monitor the News & Insights content stream.
+  api: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+  operations: [listPosts, getPost, listCategories, getCategory, listMedia, searchContent]
+- file: ascend-advanced-therapies-track-job-openings.md
+  name: Track Ascend Advanced Therapies job openings
+  description: Retrieve and monitor open roles from the Careers custom post type.
+  api: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+  operations: [listJobOpenings, getJobOpening, listTypes]

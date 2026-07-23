@@ -1,0 +1,120 @@
+openapi: 3.1.0
+info:
+  title: Ascend Advanced Therapies Content API (WordPress REST) Careers oEmbed API
+  version: wp/v2
+  summary: Public read surface of the Ascend Advanced Therapies corporate site content API.
+  description: Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.
+  contact:
+    name: Ascend Advanced Therapies
+    url: https://www.ascend-adv.com/contact-us/
+    email: hello@www.ascend-adv.com
+  x-apis-io-provenance:
+    method: derived
+    source: https://www.ascend-adv.com/wp-json/
+    derived_on: '2026-07-19'
+    note: Routes enumerated from the live wp-json discovery document (328 routes across 12 namespaces); each operation below was probed anonymously and returned 200. Schemas reflect fields observed in live responses. No fabricated operations.
+servers:
+- url: https://www.ascend-adv.com/wp-json
+  description: Production
+tags:
+- name: oEmbed
+  description: oEmbed discovery for site URLs.
+paths:
+  /oembed/1.0/embed:
+    get:
+      tags:
+      - oEmbed
+      operationId: getOembed
+      summary: Get an oEmbed response for a site URL
+      parameters:
+      - name: url
+        in: query
+        required: true
+        description: The URL on this site to embed.
+        schema:
+          type: string
+          format: uri
+      - name: format
+        in: query
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+          default: json
+      - name: maxwidth
+        in: query
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: oEmbed document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: string
+                  provider_name:
+                    type: string
+                  provider_url:
+                    type: string
+                    format: uri
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  html:
+                    type: string
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  schemas:
+    Error:
+      type: object
+      description: The WordPress REST error envelope. Not RFC 9457 problem+json; errors are returned as application/json with a machine-readable `code`, a human `message`, and a `data` object carrying the HTTP status and any per-parameter validation details.
+      required:
+      - code
+      - message
+      - data
+      properties:
+        code:
+          type: string
+          description: Machine-readable error code.
+          examples:
+          - rest_no_route
+          - rest_post_invalid_id
+          - rest_invalid_param
+          - rest_forbidden
+        message:
+          type: string
+          description: Human-readable error message.
+        data:
+          type: object
+          properties:
+            status:
+              type: integer
+            params:
+              type: object
+              additionalProperties:
+                type: string
+            details:
+              type: object
+  responses:
+    NotFound:
+      description: The requested resource does not exist.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: rest_post_invalid_id
+            message: Invalid post ID.
+            data:
+              status: 404
+  securitySchemes:
+    applicationPassword:
+      type: http
+      scheme: basic
+      description: WordPress Application Passwords. Advertised by the API index at `authentication.application-passwords`, authorized at https://www.ascend-adv.com/wp-admin/authorize-application.php. Required only for write operations and for privileged reads (for example /wp/v2/settings, which returns 401 anonymously). All operations documented in this specification are anonymously readable.

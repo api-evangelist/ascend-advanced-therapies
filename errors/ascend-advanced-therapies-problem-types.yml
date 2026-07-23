@@ -1,0 +1,73 @@
+generated: '2026-07-19'
+method: searched
+source: https://www.ascend-adv.com/wp-json
+derived_from: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+format: wordpress-rest
+rfc9457: false
+note: >-
+  Ascend Advanced Therapies publishes no error reference. Every entry below was captured by issuing
+  the request live against the production host on 2026-07-19 and recording the verbatim response
+  body; nothing here is inferred. The envelope is the WordPress REST error object served as
+  application/json, not RFC 9457 application/problem+json.
+envelope:
+  media_type: application/json
+  fields:
+    code: Machine-readable error code.
+    message: Human-readable message.
+    data.status: HTTP status, repeated in the body.
+    data.params: Map of parameter name to validation message (validation errors only).
+    data.details: Map of parameter name to a structured error object (validation errors only).
+problems:
+- code: rest_no_route
+  status: 404
+  title: No matching route
+  message: No route was found matching the URL and request method.
+  remediation: >-
+    Check the path and HTTP method against the route index at https://www.ascend-adv.com/wp-json/.
+  verified_by: GET /wp/v2/nope
+- code: rest_post_invalid_id
+  status: 404
+  title: Invalid post ID
+  message: Invalid post ID.
+  remediation: >-
+    The numeric ID does not resolve to a readable item of that type. List the collection first and
+    use an ID from the response.
+  verified_by: GET /wp/v2/posts/99999999
+  source_operation: openapi/ascend-advanced-therapies-wp-rest-openapi.yml#getPost
+- code: rest_invalid_param
+  status: 400
+  title: Invalid parameter
+  message: 'Invalid parameter(s): <name>'
+  remediation: >-
+    Read data.params for the per-parameter message. Example observed: per_page must be between 1
+    (inclusive) and 100 (inclusive).
+  verified_by: GET /wp/v2/posts?per_page=9999
+  example:
+    code: rest_invalid_param
+    message: 'Invalid parameter(s): per_page'
+    data:
+      status: 400
+      params:
+        per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
+      details:
+        per_page:
+          code: rest_out_of_bounds
+          message: per_page must be between 1 (inclusive) and 100 (inclusive)
+          data: null
+- code: rest_out_of_bounds
+  status: 400
+  title: Parameter out of bounds
+  message: <param> must be between <min> (inclusive) and <max> (inclusive).
+  remediation: Clamp the parameter to the documented range.
+  context: Appears nested under data.details of a rest_invalid_param response.
+  verified_by: GET /wp/v2/posts?per_page=9999
+- code: rest_forbidden
+  status: 401
+  title: Not permitted
+  message: Sorry, you are not allowed to do that.
+  remediation: >-
+    The route requires authentication or a capability the caller lacks. Present WordPress
+    Application Password credentials as HTTP Basic over TLS.
+  verified_by: GET /wp/v2/settings
+  also_observed_on:
+  - GET /wp/v2/block-types

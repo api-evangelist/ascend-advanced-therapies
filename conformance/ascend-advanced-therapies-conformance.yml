@@ -1,0 +1,79 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
+note: >-
+  Standards conformance derived from the live API surface and probe evidence. Ascend Advanced
+  Therapies publishes no compliance or certification program on its website (no trust center, no
+  SOC 2 / ISO 27001 / HIPAA claims were found), so no Compliance pointer is emitted. Life-science
+  regulatory posture (cGMP manufacturing, FDA/EMA regulatory support) is a manufacturing-quality
+  claim made in marketing copy, not a published API or information-security compliance program, and
+  is recorded here as context only.
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: openapi/ascend-advanced-therapies-wp-rest-openapi.yml is an OpenAPI 3.1.0 document (derived by API Evangelist, not published by the provider).
+  published_by_provider: false
+- id: http-basic-auth
+  conforms: true
+  evidence: WordPress Application Passwords presented as HTTP Basic; advertised at /wp-json/ authentication.application-passwords.
+- id: oauth2
+  conforms: false
+  evidence: No oauth2 security scheme and no /.well-known/oauth-authorization-server (404).
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returned 404.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use the WordPress REST envelope (code/message/data) as application/json, not application/problem+json.
+- id: rfc8288-web-linking
+  conforms: true
+  evidence: Collection responses return a Link header with rel="next" for pagination.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returned 404.
+- id: rfc9727-api-catalog
+  conforms: false
+  evidence: /.well-known/api-catalog returned 404; the WordPress /wp-json/ index serves the equivalent role non-standardly.
+- id: rfc8594-sunset-header
+  conforms: false
+  evidence: No Sunset or Deprecation headers observed on any probed response.
+- id: pagination
+  conforms: true
+  evidence: page/per_page parameters with X-WP-Total and X-WP-TotalPages response headers.
+- id: idempotency
+  conforms: false
+  evidence: No idempotency key header or parameter; public surface is GET-only.
+- id: cors
+  conforms: true
+  evidence: access-control-allow-headers and access-control-expose-headers returned on API responses.
+- id: oembed-1.0
+  conforms: true
+  evidence: oembed/1.0 namespace registered; GET /oembed/1.0/embed returned 200.
+- id: hal
+  conforms: partial
+  evidence: Resources carry a HAL-style _links object with typed relations, but responses are served as application/json rather than application/hal+json.
+- id: fhir-r4
+  conforms: false
+  evidence: No healthcare data surface; the API serves marketing site content only.
+- id: hsts
+  conforms: false
+  evidence: 'security/ascend-advanced-therapies-domain-security.yml: hsts false on www.ascend-adv.com.'
+- id: dnssec
+  conforms: false
+  evidence: 'security/ascend-advanced-therapies-domain-security.yml: dnssec false on ascend-adv.com.'
+- id: spf
+  conforms: true
+  evidence: 'security/ascend-advanced-therapies-domain-security.yml: spf true.'
+- id: dmarc
+  conforms: true
+  evidence: 'security/ascend-advanced-therapies-domain-security.yml: dmarc true, policy quarantine.'
+- id: caa
+  conforms: false
+  evidence: 'security/ascend-advanced-therapies-domain-security.yml: no CAA records.'
+context_not_scored:
+- id: cgmp-manufacturing
+  note: >-
+    Ascend markets cGMP manufacturing, aseptic fill-finish, and GMP QC testing with regulatory
+    support. This is a life-science quality claim about physical manufacturing operations, not an
+    API standard or an audited information-security certification, and is not treated as published
+    compliance.
