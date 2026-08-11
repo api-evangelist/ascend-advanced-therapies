@@ -223,6 +223,12 @@ apis:
   - type: Lifecycle
     url: lifecycle/ascend-advanced-therapies-lifecycle.yml
 common:
+- type: AgentSkill
+  url: skills/ascend-advanced-therapies-monitor-news-insights.md
+- type: MCPServer
+  url: mcp/ascend-advanced-therapies-mcp.yml
+- type: Overlay
+  url: overlays/ascend-advanced-therapies-wp-rest-overlay.yaml
 - type: Website
   url: https://www.ascend-adv.com/
 - type: About
