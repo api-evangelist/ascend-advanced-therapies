@@ -1,0 +1,588 @@
+{
+  "item": [
+    {
+      "id": "86dece1e-3110-4ec4-931f-28064cb13cce",
+      "name": "Discovery",
+      "description": {
+        "content": "Site, content-type, and taxonomy metadata.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2d9de37-f51f-4ef4-9f6a-2199c2805e94",
+          "name": "Get the API index",
+          "request": {
+            "name": "Get the API index",
+            "description": {
+              "content": "Returns the WordPress REST API discovery document: site name, description, home URL, registered namespaces, supported authentication methods, and the full route index.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "63e3953b-699b-47eb-9e3f-b3175a182b64",
+              "name": "API discovery document",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"Ascend\",\n  \"description\": \"Building the Future of Advanced Therapies\",\n  \"url\": \"https://www.ascend-adv.com\",\n  \"home\": \"https://www.ascend-adv.com\",\n  \"namespaces\": [\n    \"oembed/1.0\",\n    \"wp/v2\",\n    \"yoast/v1\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6aeb510-6d21-4d9e-9cee-bf97eff233b5",
+          "name": "List content types",
+          "request": {
+            "name": "List content types",
+            "description": {
+              "content": "Returns every registered post type with its REST base and namespace. Used to discover custom post types such as `awsm_job_openings`.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "types"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b558ee2a-6802-427a-8e94-e506288ec33e",
+              "name": "Map of content types keyed by type name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "types"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"description\": \"string\",\n    \"hierarchical\": false,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomies\": [\n      \"string\",\n      \"string\"\n    ],\n    \"rest_base\": \"string\",\n    \"rest_namespace\": \"string\",\n    \"_links\": {}\n  },\n  \"key_1\": {\n    \"description\": \"string\",\n    \"hierarchical\": true,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomies\": [\n      \"string\",\n      \"string\"\n    ],\n    \"rest_base\": \"string\",\n    \"rest_namespace\": \"string\",\n    \"_links\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "23073f34-ba3f-4050-818a-b8578e3f8bdd",
+          "name": "Get a content type",
+          "request": {
+            "name": "Get a content type",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "types",
+                ":type"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "type",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8b3817ad-f6c2-4a9b-8bf4-d1e2f4571c53",
+              "name": "The content type",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"hierarchical\": false,\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomies\": [\n    \"string\",\n    \"string\"\n  ],\n  \"rest_base\": \"string\",\n  \"rest_namespace\": \"string\",\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7cc600a1-f29b-4042-9f1a-0bedc402e525",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "types",
+                    ":type"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "type",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52756d8b-d1dc-4dbf-a31e-78e2d5206f1d",
+          "name": "List taxonomies",
+          "request": {
+            "name": "List taxonomies",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "taxonomies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b637a2ac-ec10-48ea-9833-5e832de745cd",
+              "name": "Map of taxonomies keyed by taxonomy name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "taxonomies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {\n    \"description\": \"string\",\n    \"hierarchical\": true,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"rest_base\": \"string\",\n    \"rest_namespace\": \"string\",\n    \"types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"_links\": {}\n  },\n  \"key_1\": {\n    \"description\": \"string\",\n    \"hierarchical\": false,\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"rest_base\": \"string\",\n    \"rest_namespace\": \"string\",\n    \"types\": [\n      \"string\",\n      \"string\"\n    ],\n    \"_links\": {}\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a255cb28-2053-4f50-b0db-e0ad934e0e58",
+          "name": "Get a taxonomy",
+          "request": {
+            "name": "Get a taxonomy",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "taxonomies",
+                ":taxonomy"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "taxonomy",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "edf38bea-d7df-4ec4-a76a-e039088a9a51",
+              "name": "The taxonomy",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "taxonomies",
+                    ":taxonomy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxonomy",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"description\": \"string\",\n  \"hierarchical\": false,\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"rest_base\": \"string\",\n  \"rest_namespace\": \"string\",\n  \"types\": [\n    \"string\",\n    \"string\"\n  ],\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "78af862d-9605-41b3-ad72-b1fc3c980500",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "taxonomies",
+                    ":taxonomy"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "taxonomy",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "52295a96-9f54-4539-8c95-7626a46f14ff",
+          "name": "List post statuses",
+          "request": {
+            "name": "List post statuses",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "statuses"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "db3c43f5-0dca-4ae2-8bda-f34ab7cb6a3e",
+              "name": "Map of statuses keyed by status name",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "statuses"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"key_0\": {},\n  \"key_1\": {},\n  \"key_2\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.ascend-adv.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "862c29da-699e-4cc4-b886-6cb522a18c19",
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Discovery API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.\n\nContact Support:\n Name: Ascend Advanced Therapies\n Email: hello@www.ascend-adv.com",
+      "type": "text/plain"
+    }
+  }
+}

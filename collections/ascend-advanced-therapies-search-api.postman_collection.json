@@ -1,0 +1,214 @@
+{
+  "item": [
+    {
+      "id": "6d962b7a-7b23-4824-93df-8eea255e1a49",
+      "name": "Search",
+      "description": {
+        "content": "Cross-content site search.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d77c7ef0-8ef9-4ea3-b8e7-542751f57415",
+          "name": "Search site content",
+          "request": {
+            "name": "Search site content",
+            "description": {
+              "content": "Cross-content-type search returning lightweight result stubs.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) The search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Limit results to a search object type."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f1d55987-b019-4d19-85b0-02d1081f6bb0",
+              "name": "Search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "55"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7867,\n    \"title\": \"string\",\n    \"url\": \"http://anKEIrIbbVfMCdHyjGgEyCyrsANzFNq.eyzlBEDgamtWEgUM4.IYTR35UoZHXpFXK0yDDJ4xh5Olwe0Otom\",\n    \"type\": \"string\",\n    \"subtype\": \"string\",\n    \"_links\": {}\n  },\n  {\n    \"id\": 3735,\n    \"title\": \"string\",\n    \"url\": \"http://AZfJoDXhzBM.ogvYm-YYzM2o.dN.Brt,dBLwBITGqbF-PEe3C\",\n    \"type\": \"string\",\n    \"subtype\": \"string\",\n    \"_links\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a6d2dbc9-eaba-4681-b1c0-89d3fa83b109",
+              "name": "One or more query parameters failed validation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_invalid_param\",\n  \"message\": \"Invalid parameter(s): per_page\",\n  \"data\": {\n    \"status\": 400,\n    \"params\": {\n      \"per_page\": \"per_page must be between 1 (inclusive) and 100 (inclusive)\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.ascend-adv.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "59f5ed60-8832-4cb2-9373-72a8ecdefea9",
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.\n\nContact Support:\n Name: Ascend Advanced Therapies\n Email: hello@www.ascend-adv.com",
+      "type": "text/plain"
+    }
+  }
+}

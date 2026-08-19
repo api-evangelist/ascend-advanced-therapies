@@ -1,0 +1,80 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Pages API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List site pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/pages",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in the response."
+              }
+            ]
+          },
+          "docs": "List site pages"
+        },
+        {
+          "info": {
+            "name": "Get a page by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/pages/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in the response."
+              }
+            ]
+          },
+          "docs": "Get a page by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

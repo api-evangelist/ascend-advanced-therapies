@@ -1,0 +1,661 @@
+{
+  "item": [
+    {
+      "id": "b0fa1699-8ba4-4fb0-85e8-9df845e53956",
+      "name": "Taxonomy",
+      "description": {
+        "content": "Categories and tags.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1dc4fb0e-9cc2-463e-83b2-8a198681ff1c",
+          "name": "List categories",
+          "request": {
+            "name": "List categories",
+            "description": {
+              "content": "Lists the `category` taxonomy terms applied to posts. On this site the categories include news, articles, blogs, and webinar.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "categories"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "27eb24b3-8e8b-4007-8938-62ee88a572a0",
+              "name": "A page of categories",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "55"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1721,\n    \"count\": 2701,\n    \"description\": \"string\",\n    \"link\": \"https://llrjdeDNCwmtSuTdDRgTRGM.edZzNH1AqfVAoaeiEyBFiqiPDYy9Zw3c2S98lDK29mRrWQkMnQDSKxQyjRM\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 5957,\n    \"_links\": {}\n  },\n  {\n    \"id\": 2359,\n    \"count\": 3830,\n    \"description\": \"string\",\n    \"link\": \"https://dNbpwmrgoZklzcoue.lhziS2vcgaKWDl7EXxSFFG89SxMNE7DT969ESjGbzYwgm8dWK1Dur6esTBUgBf\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 9603,\n    \"_links\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "3d7e4c6d-dd25-414c-943c-f40d278f1847",
+              "name": "One or more query parameters failed validation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "categories"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_invalid_param\",\n  \"message\": \"Invalid parameter(s): per_page\",\n  \"data\": {\n    \"status\": 400,\n    \"params\": {\n      \"per_page\": \"per_page must be between 1 (inclusive) and 100 (inclusive)\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "400e6c55-31ff-45f4-99e3-aff0e10c537a",
+          "name": "Get a category by ID",
+          "request": {
+            "name": "Get a category by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "categories",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e967de42-ddc3-437f-9d9a-4c6c2f1b7f45",
+              "name": "The category term",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5582,\n  \"count\": 4297,\n  \"description\": \"string\",\n  \"link\": \"https://IKhcjZzeqZFVQwtlAAcgGp.qyEr.QMecwxQbu.LAhg89EXKLZEP\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"string\",\n  \"parent\": 8990,\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "83d00ed8-18bf-4632-8270-c0fd3c1f86e3",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "categories",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7f63e67d-5756-4237-93c0-1a737c22f9c6",
+          "name": "List tags",
+          "request": {
+            "name": "List tags",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "tags"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb6e568d-f10c-496b-aaa5-215d623614d0",
+              "name": "A page of tags",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "55"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 1721,\n    \"count\": 2701,\n    \"description\": \"string\",\n    \"link\": \"https://llrjdeDNCwmtSuTdDRgTRGM.edZzNH1AqfVAoaeiEyBFiqiPDYy9Zw3c2S98lDK29mRrWQkMnQDSKxQyjRM\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 5957,\n    \"_links\": {}\n  },\n  {\n    \"id\": 2359,\n    \"count\": 3830,\n    \"description\": \"string\",\n    \"link\": \"https://dNbpwmrgoZklzcoue.lhziS2vcgaKWDl7EXxSFFG89SxMNE7DT969ESjGbzYwgm8dWK1Dur6esTBUgBf\",\n    \"name\": \"string\",\n    \"slug\": \"string\",\n    \"taxonomy\": \"string\",\n    \"parent\": 9603,\n    \"_links\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e250e053-7eaf-46c1-925d-413237f27f3c",
+              "name": "One or more query parameters failed validation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "tags"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_invalid_param\",\n  \"message\": \"Invalid parameter(s): per_page\",\n  \"data\": {\n    \"status\": 400,\n    \"params\": {\n      \"per_page\": \"per_page must be between 1 (inclusive) and 100 (inclusive)\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "70e034e3-1ee0-47d4-b038-b834b93323e8",
+          "name": "Get a tag by ID",
+          "request": {
+            "name": "Get a tag by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "tags",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49fdaeb4-1f61-4591-a0ce-d8b17516dea0",
+              "name": "The tag term",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 5582,\n  \"count\": 4297,\n  \"description\": \"string\",\n  \"link\": \"https://IKhcjZzeqZFVQwtlAAcgGp.qyEr.QMecwxQbu.LAhg89EXKLZEP\",\n  \"name\": \"string\",\n  \"slug\": \"string\",\n  \"taxonomy\": \"string\",\n  \"parent\": 8990,\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6249ea4a-8b9d-47bf-88d1-8c9dd6ec24b2",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "tags",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.ascend-adv.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d271f2b1-73d6-4824-8a1f-0e384d11561a",
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Taxonomy API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.\n\nContact Support:\n Name: Ascend Advanced Therapies\n Email: hello@www.ascend-adv.com",
+      "type": "text/plain"
+    }
+  }
+}

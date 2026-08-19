@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers oEmbed API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "oEmbed",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get an oEmbed response for a site URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/oembed/1.0/embed",
+            "params": [
+              {
+                "name": "url",
+                "value": "",
+                "type": "query",
+                "description": "The URL on this site to embed."
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxwidth",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get an oEmbed response for a site URL"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

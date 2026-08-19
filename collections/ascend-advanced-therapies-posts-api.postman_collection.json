@@ -1,0 +1,482 @@
+{
+  "item": [
+    {
+      "id": "2396d8a2-95d2-4160-ae88-0c044401cfe1",
+      "name": "Posts",
+      "description": {
+        "content": "News & Insights articles, blogs, and webinar entries.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e11b5700-0949-4676-8daf-4454de2379bf",
+          "name": "List News & Insights posts",
+          "request": {
+            "name": "List News & Insights posts",
+            "description": {
+              "content": "Returns a paginated collection of published posts. The site's `post` type is labelled \"News & Insights\" and carries the news, articles, blogs, and webinar categories. Total count and page count are returned in the X-WP-Total and X-WP-TotalPages headers.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "posts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<integer>",
+                  "description": "Limit results to items assigned to the given category IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<integer>",
+                  "description": "Limit results to items assigned to the given category IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<integer>",
+                  "description": "Limit results to items assigned to the given tag IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "tags",
+                  "value": "<integer>",
+                  "description": "Limit results to items assigned to the given tag IDs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit results to items with one of the given slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "slug",
+                  "value": "<string>",
+                  "description": "Limit results to items with one of the given slugs."
+                },
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in the response."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ef77df1c-75fb-4826-a4b6-ed3a751a2723",
+              "name": "A page of posts",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "RFC 8288 link relations for next/prev pages.",
+                  "key": "Link",
+                  "value": "<https://www.ascend-adv.com/wp-json/wp/v2/posts?per_page=1&page=2>; rel=\"next\""
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 346,\n    \"date\": \"2013-08-09T15:34:41.146Z\",\n    \"date_gmt\": \"2022-02-18T13:17:44.508Z\",\n    \"guid\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"modified\": \"2009-06-06T11:05:54.154Z\",\n    \"modified_gmt\": \"1999-10-21T22:00:33.288Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"https://FmWBryLkZ.ewdmirBOgoKaXcoYIFqw4O+uKWc7ZREZycvTSzVD5KyQ4,pNZVU8\",\n    \"title\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 4403,\n    \"featured_media\": 6368,\n    \"categories\": [\n      4160,\n      1933\n    ],\n    \"tags\": [\n      1595,\n      1165\n    ],\n    \"meta\": {},\n    \"acf\": {},\n    \"yoast_head_json\": {},\n    \"_links\": {}\n  },\n  {\n    \"id\": 3464,\n    \"date\": \"2015-07-27T00:36:54.192Z\",\n    \"date_gmt\": \"2001-11-15T15:18:46.015Z\",\n    \"guid\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"modified\": \"1994-06-13T02:24:08.855Z\",\n    \"modified_gmt\": \"1998-02-26T02:44:13.165Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"https://Rxnjt.vjrkzXtFem2y\",\n    \"title\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 1793,\n    \"featured_media\": 8050,\n    \"categories\": [\n      7688,\n      6193\n    ],\n    \"tags\": [\n      5141,\n      4651\n    ],\n    \"meta\": {},\n    \"acf\": {},\n    \"yoast_head_json\": {},\n    \"_links\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0eebe921-79f6-4dea-9932-8e3b461d5018",
+              "name": "One or more query parameters failed validation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "posts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "tags",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "slug",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_invalid_param\",\n  \"message\": \"Invalid parameter(s): per_page\",\n  \"data\": {\n    \"status\": 400,\n    \"params\": {\n      \"per_page\": \"per_page must be between 1 (inclusive) and 100 (inclusive)\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "de434bf5-92c5-47da-a07e-d0fbb93832f0",
+          "name": "Get a post by ID",
+          "request": {
+            "name": "Get a post by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "posts",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "context",
+                  "value": "view",
+                  "description": "Scope under which the request is made; determines fields present in the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c39d5f2c-c760-4f56-9482-dd892150d908",
+              "name": "The post",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "posts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 6950,\n  \"date\": \"1960-03-14T09:02:50.582Z\",\n  \"date_gmt\": \"2023-04-30T13:25:24.360Z\",\n  \"guid\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"modified\": \"1985-12-15T17:14:35.670Z\",\n  \"modified_gmt\": \"1960-06-14T05:20:30.430Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"link\": \"https://YCxRtKGfzIBfZmw.darmuMJ1gFmOfxGX8bXxvz-F0PfaihvnHuYMTmGxQjt.IUFrf.8C8rSl,RYg\",\n  \"title\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"excerpt\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"author\": 4410,\n  \"featured_media\": 4988,\n  \"categories\": [\n    9852,\n    4313\n  ],\n  \"tags\": [\n    5974,\n    2097\n  ],\n  \"meta\": {},\n  \"acf\": {},\n  \"yoast_head_json\": {},\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "10ea746d-b7f6-4f6a-8e7e-dc9e15dc53e2",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "posts",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "context",
+                      "value": "view"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.ascend-adv.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4ae5b8d9-3ec6-4f97-b1e0-2b6532e38e27",
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Posts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.\n\nContact Support:\n Name: Ascend Advanced Therapies\n Email: hello@www.ascend-adv.com",
+      "type": "text/plain"
+    }
+  }
+}

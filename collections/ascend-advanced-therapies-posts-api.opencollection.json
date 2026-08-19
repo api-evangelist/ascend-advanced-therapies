@@ -1,0 +1,108 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Posts API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Posts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List News & Insights posts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/posts",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to items assigned to the given category IDs."
+              },
+              {
+                "name": "tags",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to items assigned to the given tag IDs."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to items with one of the given slugs."
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in the response."
+              }
+            ]
+          },
+          "docs": "Returns a paginated collection of published posts. The site's `post` type is labelled \"News & Insights\" and carries the news, articles, blogs, and webinar categories. Total count and page count are returned in the X-WP-Total and X-WP-TotalPages headers."
+        },
+        {
+          "info": {
+            "name": "Get a post by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/posts/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              },
+              {
+                "name": "context",
+                "value": "",
+                "type": "query",
+                "description": "Scope under which the request is made; determines fields present in the response."
+              }
+            ]
+          },
+          "docs": "Get a post by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

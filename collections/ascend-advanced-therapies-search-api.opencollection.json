@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Search API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search site content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "The search term."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to a search object type."
+              }
+            ]
+          },
+          "docs": "Cross-content-type search returning lightweight result stubs."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

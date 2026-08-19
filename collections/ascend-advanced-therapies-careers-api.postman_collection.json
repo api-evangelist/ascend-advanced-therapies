@@ -1,0 +1,361 @@
+{
+  "item": [
+    {
+      "id": "7a380c2b-7179-4bc8-991a-715084483f6a",
+      "name": "Careers",
+      "description": {
+        "content": "Job openings custom post type.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc5c8553-60dc-4b39-a959-af0f434918f9",
+          "name": "List job openings",
+          "request": {
+            "name": "List job openings",
+            "description": {
+              "content": "Lists the `awsm_job_openings` custom post type that backs the Careers section of ascend-adv.com. Items carry the standard post envelope plus `meta` and `acf` custom field bags holding the role attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "awsm_job_openings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Current page of the collection."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "10",
+                  "description": "Maximum number of items to return per page."
+                },
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "Limit results to those matching a string."
+                },
+                {
+                  "disabled": false,
+                  "key": "order",
+                  "value": "desc"
+                },
+                {
+                  "disabled": false,
+                  "key": "orderby",
+                  "value": "date"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "bc69926e-dfb5-4f6f-9a22-e6778b84bab5",
+              "name": "A page of job openings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "awsm_job_openings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "disabled": false,
+                  "description": "Total number of items in the unpaginated collection.",
+                  "key": "X-WP-Total",
+                  "value": "55"
+                },
+                {
+                  "disabled": false,
+                  "description": "Total number of pages available at the current per_page size.",
+                  "key": "X-WP-TotalPages",
+                  "value": "55"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 3912,\n    \"date\": \"2011-06-28T04:45:49.315Z\",\n    \"date_gmt\": \"1955-04-10T06:25:44.289Z\",\n    \"guid\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"modified\": \"1977-03-03T04:16:58.057Z\",\n    \"modified_gmt\": \"2021-04-04T17:57:09.311Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"https://LGMBgxdy.rvNi95kAjXW2fy+.W0W1jBoCFLJHGMzn7jhm\",\n    \"title\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"author\": 1440,\n    \"template\": \"string\",\n    \"meta\": {},\n    \"class_list\": [\n      \"string\",\n      \"string\"\n    ],\n    \"acf\": {},\n    \"yoast_head_json\": {},\n    \"_links\": {}\n  },\n  {\n    \"id\": 1440,\n    \"date\": \"1948-06-24T05:35:29.026Z\",\n    \"date_gmt\": \"2004-03-23T11:41:58.611Z\",\n    \"guid\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"modified\": \"1969-03-28T16:35:22.679Z\",\n    \"modified_gmt\": \"1992-07-11T02:19:01.528Z\",\n    \"slug\": \"string\",\n    \"status\": \"string\",\n    \"type\": \"string\",\n    \"link\": \"https://qaGpdPYTXebNlhYxBcQJzHybRVOcdrHJN.ttilhqcJePYUeYZpF5bVU8337hfns30AW\",\n    \"title\": {\n      \"rendered\": \"string\",\n      \"protected\": false\n    },\n    \"content\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"excerpt\": {\n      \"rendered\": \"string\",\n      \"protected\": true\n    },\n    \"author\": 6629,\n    \"template\": \"string\",\n    \"meta\": {},\n    \"class_list\": [\n      \"string\",\n      \"string\"\n    ],\n    \"acf\": {},\n    \"yoast_head_json\": {},\n    \"_links\": {}\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f0b4a4da-15de-452d-8be0-1a9e3b8d2995",
+              "name": "One or more query parameters failed validation.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "awsm_job_openings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "10"
+                    },
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "order",
+                      "value": "desc"
+                    },
+                    {
+                      "key": "orderby",
+                      "value": "date"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_invalid_param\",\n  \"message\": \"Invalid parameter(s): per_page\",\n  \"data\": {\n    \"status\": 400,\n    \"params\": {\n      \"per_page\": \"per_page must be between 1 (inclusive) and 100 (inclusive)\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7db5a870-1cf2-4aa1-9c78-826f4af1990f",
+          "name": "Get a job opening by ID",
+          "request": {
+            "name": "Get a job opening by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "wp",
+                "v2",
+                "awsm_job_openings",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) Unique identifier for the resource."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4e460f66-336e-4aa8-9680-2a1c53c939b3",
+              "name": "The job opening",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "awsm_job_openings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 4633,\n  \"date\": \"1983-01-25T03:38:36.334Z\",\n  \"date_gmt\": \"2024-01-18T12:12:14.039Z\",\n  \"guid\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"modified\": \"1950-12-15T22:32:53.223Z\",\n  \"modified_gmt\": \"2000-05-27T07:10:10.709Z\",\n  \"slug\": \"string\",\n  \"status\": \"string\",\n  \"type\": \"string\",\n  \"link\": \"http://rPpeKrPmTJQcIvQwhTyUSVzAcXFvVnb.laU1xmSoPotKqBOla07RH.MGCbFm.\",\n  \"title\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"content\": {\n    \"rendered\": \"string\",\n    \"protected\": true\n  },\n  \"excerpt\": {\n    \"rendered\": \"string\",\n    \"protected\": false\n  },\n  \"author\": 1111,\n  \"template\": \"string\",\n  \"meta\": {},\n  \"class_list\": [\n    \"string\",\n    \"string\"\n  ],\n  \"acf\": {},\n  \"yoast_head_json\": {},\n  \"_links\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38dda54f-3b18-464f-8af9-53687f450da5",
+              "name": "The requested resource does not exist.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wp",
+                    "v2",
+                    "awsm_job_openings",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) Unique identifier for the resource."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"code\": \"rest_post_invalid_id\",\n  \"message\": \"Invalid post ID.\",\n  \"data\": {\n    \"status\": 404\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://www.ascend-adv.com/wp-json",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "50d64baf-c1ce-47c8-9f48-3fe92e41f758",
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.\n\nContact Support:\n Name: Ascend Advanced Therapies\n Email: hello@www.ascend-adv.com",
+      "type": "text/plain"
+    }
+  }
+}

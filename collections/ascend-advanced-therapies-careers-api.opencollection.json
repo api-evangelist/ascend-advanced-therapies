@@ -1,0 +1,78 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Careers",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List job openings",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/awsm_job_openings",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "orderby",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the `awsm_job_openings` custom post type that backs the Careers section of ascend-adv.com. Items carry the standard post envelope plus `meta` and `acf` custom field bags holding the role attributes."
+        },
+        {
+          "info": {
+            "name": "Get a job opening by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/awsm_job_openings/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Get a job opening by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

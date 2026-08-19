@@ -1,0 +1,98 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Discovery API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Discovery",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get the API index",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/"
+          },
+          "docs": "Returns the WordPress REST API discovery document: site name, description, home URL, registered namespaces, supported authentication methods, and the full route index."
+        },
+        {
+          "info": {
+            "name": "List content types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/types"
+          },
+          "docs": "Returns every registered post type with its REST base and namespace. Used to discover custom post types such as `awsm_job_openings`."
+        },
+        {
+          "info": {
+            "name": "Get a content type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/types/:type",
+            "params": [
+              {
+                "name": "type",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a content type"
+        },
+        {
+          "info": {
+            "name": "List taxonomies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/taxonomies"
+          },
+          "docs": "List taxonomies"
+        },
+        {
+          "info": {
+            "name": "Get a taxonomy",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/taxonomies/:taxonomy",
+            "params": [
+              {
+                "name": "taxonomy",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a taxonomy"
+        },
+        {
+          "info": {
+            "name": "List post statuses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/statuses"
+          },
+          "docs": "List post statuses"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,123 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Ascend Advanced Therapies Content API (WordPress REST) Careers Taxonomy API",
+    "version": "wp/v2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Taxonomy",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/categories",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              },
+              {
+                "name": "slug",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Lists the `category` taxonomy terms applied to posts. On this site the categories include news, articles, blogs, and webinar."
+        },
+        {
+          "info": {
+            "name": "Get a category by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/categories/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Get a category by ID"
+        },
+        {
+          "info": {
+            "name": "List tags",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/tags",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Current page of the collection."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of items to return per page."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Limit results to those matching a string."
+              }
+            ]
+          },
+          "docs": "List tags"
+        },
+        {
+          "info": {
+            "name": "Get a tag by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://www.ascend-adv.com/wp-json/wp/v2/tags/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier for the resource."
+              }
+            ]
+          },
+          "docs": "Get a tag by ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -2,12 +2,11 @@ generated: '2026-07-19'
 method: derived
 status: candidate
 source: openapi/ascend-advanced-therapies-wp-rest-openapi.yml
-note: >-
-  Ascend Advanced Therapies publishes no MCP server; searches of the corporate site, the MCP
-  registry, and npm found none. The tool list below is a CANDIDATE derived one-to-one from the
-  anonymously readable operations in the OpenAPI, so an agent could be given read access to the
-  company's public content. Every source_operation is a real operationId present verbatim in that
-  specification. No hosted endpoint exists — do not treat `server.url` as live.
+note: Ascend Advanced Therapies publishes no MCP server; searches of the corporate site, the MCP registry,
+  and npm found none. The tool list below is a CANDIDATE derived one-to-one from the anonymously readable
+  operations in the OpenAPI, so an agent could be given read access to the company's public content. Every
+  source_operation is a real operationId present verbatim in that specification. No hosted endpoint exists
+  — do not treat `server.url` as live.
 server:
   name: ascend-advanced-therapies
   transport: stdio
@@ -16,7 +15,8 @@ server:
   auth: none required for the read surface
 tools:
 - name: list_posts
-  description: List Ascend Advanced Therapies News & Insights posts, with optional search, category, tag, and paging filters.
+  description: List Ascend Advanced Therapies News & Insights posts, with optional search, category, tag,
+    and paging filters.
   source_operation: openapi/ascend-advanced-therapies-wp-rest-openapi.yml#listPosts
 - name: get_post
   description: Retrieve a single News & Insights post by its numeric ID.
@@ -62,9 +62,15 @@ tools:
   source_operation: openapi/ascend-advanced-therapies-wp-rest-openapi.yml#listTaxonomies
 guidance:
   read_only: true
-  detail: >-
-    Only safe GET operations are exposed as tools. The write surface exists on the same routes but
-    requires WordPress Application Password credentials and is deliberately excluded from this
-    candidate manifest.
-  pagination: Tools should surface page/per_page and read X-WP-Total / X-WP-TotalPages from the response headers.
+  detail: Only safe GET operations are exposed as tools. The write surface exists on the same routes but
+    requires WordPress Application Password credentials and is deliberately excluded from this candidate
+    manifest.
+  pagination: Tools should surface page/per_page and read X-WP-Total / X-WP-TotalPages from the response
+    headers.
   errors: See errors/ascend-advanced-therapies-problem-types.yml for the error envelope.
+deployment:
+  mode: none
+  verified: derived
+  tools: 15
+  checked: '2026-08-12'
+  source: catalog MCP census
