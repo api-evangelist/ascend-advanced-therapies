@@ -12,6 +12,18 @@ description: >-
   proprietary AAV yield enhancers. Ascend is a life-science manufacturer rather than a software
   vendor and publishes no commercial product API; the only machine-readable interface it exposes is
   the WordPress REST content API behind its corporate website, captured here for discovery.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
