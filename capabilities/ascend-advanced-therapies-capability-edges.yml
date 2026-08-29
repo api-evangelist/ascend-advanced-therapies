@@ -1,0 +1,25 @@
+slug: ascend-advanced-therapies
+provider: Ascend Advanced Therapies
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Pharmaceuticals & Life Sciences
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Careers
+  spec_file: ascend-advanced-therapies-careers-api-openapi.yml
+  capability_id: BC-300.10
+  capability_id_l1: BC-300
+  capability_name: Talent Acquisition Management
+  confidence: 0.75
+  evidence: GET /wp/v2/awsm_job_openings listJobOpenings 'List job openings'
+  reason: The tag exposes the job openings custom post type backing the Careers listings — publishing
+    open roles is recruiting/sourcing content, mapping to Talent Acquisition. Confidence tempered because
+    it is a marketing-site content API rather than an ATS.

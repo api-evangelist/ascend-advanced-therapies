@@ -235,6 +235,9 @@ apis:
   - type: Lifecycle
     url: lifecycle/ascend-advanced-therapies-lifecycle.yml
 common:
+- type: CapabilityMap
+  url: capabilities/ascend-advanced-therapies-capability-edges.yml
+  name: Ascend Advanced Therapies Business Capability Map
 - type: AgentSkill
   url: skills/ascend-advanced-therapies-monitor-news-insights.md
 - type: MCPServer
