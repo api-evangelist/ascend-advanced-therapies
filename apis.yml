@@ -125,28 +125,6 @@ apis:
     url: conformance/ascend-advanced-therapies-conformance.yml
   - type: Lifecycle
     url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-oembed-api
-  name: Ascend Advanced Therapies oEmbed API
-  description: oEmbed discovery for site URLs.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - oEmbed
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-oembed-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
 - aid: ascend-advanced-therapies:ascend-advanced-therapies-pages-api
   name: Ascend Advanced Therapies Pages API
   description: Static site pages.
@@ -223,6 +201,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/ascend-advanced-therapies-taxonomy-api-openapi.yml
+  - type: Authentication
+    url: authentication/ascend-advanced-therapies-authentication.yml
+  - type: ErrorCatalog
+    url: errors/ascend-advanced-therapies-problem-types.yml
+  - type: Conventions
+    url: conventions/ascend-advanced-therapies-conventions.yml
+  - type: DataModel
+    url: data-model/ascend-advanced-therapies-data-model.yml
+  - type: Conformance
+    url: conformance/ascend-advanced-therapies-conformance.yml
+  - type: Lifecycle
+    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+- aid: ascend-advanced-therapies:ascend-advanced-therapies-o-embed-api
+  name: Ascend Advanced Therapies o Embed API
+  description: oEmbed discovery for site URLs.
+  humanURL: https://www.ascend-adv.com/wp-json/
+  baseURL: https://www.ascend-adv.com/wp-json
+  tags:
+  - o Embed
+  properties:
+  - type: OpenAPI
+    url: openapi/ascend-advanced-therapies-o-embed-api-openapi.yml
   - type: Authentication
     url: authentication/ascend-advanced-therapies-authentication.yml
   - type: ErrorCatalog
