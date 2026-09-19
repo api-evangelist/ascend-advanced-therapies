@@ -219,6 +219,8 @@ apis:
   humanURL: https://www.ascend-adv.com/wp-json/
   baseURL: https://www.ascend-adv.com/wp-json
   tags:
+  - oEmbed
+  tags_raw:
   - o Embed
   properties:
   - type: OpenAPI
