@@ -1,9 +1,9 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Ascend Advanced Therapies Content API (WordPress REST) Careers Search API
+  title: Ascend Advanced Therapies Content API (WordPress REST)…
   version: wp/v2
   summary: Public read surface of the Ascend Advanced Therapies corporate site content API.
-  description: Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable. This specification was DERIVED by discovering the live route index at https://www.ascend-adv.com/wp-json/ and probing each route for anonymous access; only routes verified to return HTTP 200 without credentials are documented here as public operations. The surface exposes the company's News & Insights posts, site pages, media library, taxonomy (categories and tags), site search, content-type and taxonomy metadata, and the `awsm_job_openings` custom post type that backs the Careers listings. Write operations exist on the same routes but require authentication (WordPress Application Passwords) and are not documented here. This is not a product API offered by Ascend to customers; it is the content API of their marketing site, captured for discovery purposes.
+  description: Ascend Advanced Therapies publishes its corporate website (ascend-adv.com) on WordPress with the core WordPress REST API enabled and anonymously readable.
   contact:
     name: Ascend Advanced Therapies
     url: https://www.ascend-adv.com/contact-us/
@@ -127,17 +127,6 @@ components:
           type: string
         _links:
           type: object
-  headers:
-    XWPTotalPages:
-      description: Total number of pages available at the current per_page size.
-      schema:
-        type: integer
-      example: 55
-    XWPTotal:
-      description: Total number of items in the unpaginated collection.
-      schema:
-        type: integer
-      example: 55
   responses:
     InvalidParam:
       description: One or more query parameters failed validation.
@@ -152,6 +141,17 @@ components:
               status: 400
               params:
                 per_page: per_page must be between 1 (inclusive) and 100 (inclusive)
+  headers:
+    XWPTotalPages:
+      description: Total number of pages available at the current per_page size.
+      schema:
+        type: integer
+      example: 55
+    XWPTotal:
+      description: Total number of items in the unpaginated collection.
+      schema:
+        type: integer
+      example: 55
   securitySchemes:
     applicationPassword:
       type: http
