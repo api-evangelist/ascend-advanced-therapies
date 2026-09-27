@@ -59,184 +59,20 @@ tags:
 - CDMO
 - AAV
 apis:
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-careers-api
-  name: Ascend Advanced Therapies Careers API
-  description: Job openings custom post type.
-  humanURL: https://www.ascend-adv.com/wp-json/
+- aid: ascend-advanced-therapies:ascend-adv-com-website-wordpress-rest
+  name: Ascend Advanced Therapies Website (WordPress REST)
+  description: 'The public WordPress REST API (wp-json) of the Ascend Advanced Therapies website at www.ascend-adv.com:
+    the route index of the site''s content management system, catalogued as one site surface rather than
+    as separate APIs.'
   baseURL: https://www.ascend-adv.com/wp-json
   tags:
-  - Careers
+  - WordPress
+  x-surface: platform-generated
   properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-careers-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-discovery-api
-  name: Ascend Advanced Therapies Discovery API
-  description: Site, content-type, and taxonomy metadata.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Discovery
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-discovery-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-media-api
-  name: Ascend Advanced Therapies Media API
-  description: Media library attachments.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Media
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-media-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-pages-api
-  name: Ascend Advanced Therapies Pages API
-  description: Static site pages.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Pages
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-pages-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-posts-api
-  name: Ascend Advanced Therapies Posts API
-  description: News & Insights articles, blogs, and webinar entries.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Posts
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-posts-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-search-api
-  name: Ascend Advanced Therapies Search API
-  description: Cross-content site search.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Search
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-search-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-taxonomy-api
-  name: Ascend Advanced Therapies Taxonomy API
-  description: Categories and tags.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - Taxonomy
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-taxonomy-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
-- aid: ascend-advanced-therapies:ascend-advanced-therapies-o-embed-api
-  name: Ascend Advanced Therapies o Embed API
-  description: oEmbed discovery for site URLs.
-  humanURL: https://www.ascend-adv.com/wp-json/
-  baseURL: https://www.ascend-adv.com/wp-json
-  tags:
-  - oEmbed
-  tags_raw:
-  - o Embed
-  properties:
-  - type: OpenAPI
-    url: openapi/ascend-advanced-therapies-o-embed-api-openapi.yml
-  - type: Authentication
-    url: authentication/ascend-advanced-therapies-authentication.yml
-  - type: ErrorCatalog
-    url: errors/ascend-advanced-therapies-problem-types.yml
-  - type: Conventions
-    url: conventions/ascend-advanced-therapies-conventions.yml
-  - type: DataModel
-    url: data-model/ascend-advanced-therapies-data-model.yml
-  - type: Conformance
-    url: conformance/ascend-advanced-therapies-conformance.yml
-  - type: Lifecycle
-    url: lifecycle/ascend-advanced-therapies-lifecycle.yml
+  - type: Documentation
+    url: https://www.ascend-adv.com/wp-json
+  x-platform: wordpress
+  x-platform-surface: rest
 common:
 - type: CapabilityMap
   url: capabilities/ascend-advanced-therapies-capability-edges.yml
@@ -274,6 +110,18 @@ common:
   url: security/ascend-advanced-therapies-domain-security.yml
 - type: LLMsTxt
   url: llms/ascend-advanced-therapies-llms.txt
+- type: Authentication
+  url: authentication/ascend-advanced-therapies-authentication.yml
+- type: ErrorCatalog
+  url: errors/ascend-advanced-therapies-problem-types.yml
+- type: Conventions
+  url: conventions/ascend-advanced-therapies-conventions.yml
+- type: DataModel
+  url: data-model/ascend-advanced-therapies-data-model.yml
+- type: Conformance
+  url: conformance/ascend-advanced-therapies-conformance.yml
+- type: Lifecycle
+  url: lifecycle/ascend-advanced-therapies-lifecycle.yml
 x-enrichment:
   date: '2026-07-19'
   status: enriched
