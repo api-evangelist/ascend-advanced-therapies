@@ -64,56 +64,112 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Ascend Advanced Therapies is a gene-to-GMP contract development and manufacturing organization
-(CDMO) for advanced therapies, specializing in adeno-associated virus (AAV) vector development and
-manufacture for gene therapies, immunotherapies, oncolytics, and vaccines. Formed in 2023 when
-expert teams merged behind more than $130M of funding, and aligned with ABL, Inc. since late 2024,
-Ascend operates GMP manufacturing, aseptic fill-finish, and analytical facilities in Rockville,
-Maryland and Alachua, Florida alongside European capacity. Services span process development, gene
-therapy formulation, scalable manufacturing, in-house fill-finish, GMP QC testing, long-read NGS for
-viral vectors, and potency assay development, built on its EpyQ production system and proprietary
-AAV yield enhancers.
+Ascend Advanced Therapies is a gene-to-GMP contract development and manufacturing organization (CDMO) for advanced therapies, specializing in adeno-associated virus (AAV) vector development and manufacture for gene therapies, immunotherapies, oncolytics, and vaccines. Formed in 2023 when expert teams merged behind more than $130M of funding, and aligned with ABL, Inc. since late 2024, Ascend operates GMP manufacturing, aseptic fill-finish, and analytical facilities in Rockville, Maryland and Alachua, Florida alongside European capacity. Services span process development, gene therapy formulation, scalable manufacturing, in-house fill-finish, GMP QC testing, long-read NGS for viral vectors, and potency assay development, built on its EpyQ production system and proprietary AAV yield enhancers. Ascend is a life-science manufacturer rather than a software vendor and publishes no commercial product API; the only machine-readable interface it exposes is the WordPress REST content API behind its corporate website, captured here for discovery.
 
-Website: https://www.ascend-adv.com/
-Backed by: dcvc (DCVC Bio), alongside Abingworth, Petrichor, 4BIO Capital, Cathay Health, Deerfield
-Management, Digitalis Ventures, and Ajinomoto.
+**Areas:** Company · Biotechnology · Gene Therapy · Cell Therapy · Contract Manufacturing · Life Sciences · Pharmaceuticals · CDMO · AAV
 
-## API surface
+## Ascend Advanced Therapies on APIs.io
 
-Ascend is a life-science manufacturer, not a software vendor. It offers **no commercial product
-API**, no developer portal, no SDKs, and no public developer program. The one machine-readable
-interface it exposes is the **WordPress REST content API** behind its corporate site
-(`https://www.ascend-adv.com/wp-json`), which is anonymously readable and serves the News & Insights
-stream, site pages, media, taxonomy, site search, and the `awsm_job_openings` custom post type
-behind the Careers listings.
+Everything profiled for Ascend Advanced Therapies is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/ascend-advanced-therapies/](https://apis.io/providers/ascend-advanced-therapies/)** — or go straight to one of the APIs or properties below.
 
-That surface has been captured here as an OpenAPI 3.1 specification derived from live route
-discovery — 328 routes were enumerated from the discovery document, and only operations verified to
-return HTTP 200 anonymously are documented.
+### APIs (1)
 
-## Artifacts
+- [Ascend Advanced Therapies Website (WordPress REST)](https://apis.io/apis/ascend-advanced-therapies/ascend-adv-com-website-wordpress-rest/) — The public WordPress REST API (wp-json) of the Ascend Advanced Therapies website at www.ascend-adv.com: the route index of the site's content management…
 
-| Artifact | Path | Method |
-|---|---|---|
-| OpenAPI 3.1 | `openapi/` | derived from live route discovery |
-| Overlay | `overlays/` | generated |
-| Authentication | `authentication/` | searched (advertised at `/wp-json/`) |
-| Conventions | `conventions/` | derived |
-| Error catalog | `errors/` | searched (live probe of each error) |
-| Data model | `data-model/` | derived |
-| Lifecycle | `lifecycle/` | derived |
-| Conformance | `conformance/` | derived |
-| MCP server | `mcp/` | derived, candidate — no hosted server exists |
-| Agent skills | `skills/` | generated, read-only |
-| llms.txt | `llms/` | generated — provider publishes none |
-| Well-known | `well-known/` | searched — all discovery paths 404 |
-| Domain security | `security/` | probed |
+### Published properties
 
-## Verified absences
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Probed on 2026-07-19 and recorded rather than inferred: no `/.well-known/` surface, no
-`security.txt`, no `llms.txt`, no vulnerability disclosure policy, no trust center or published
-compliance certifications, no status page, no changelog, no deprecation policy or SLA, no SDKs or
-packages on any registry, no GitHub organization, no CLI, no sandbox, no webhooks or event surface,
-no Postman collection, and no idempotency contract. TLS 1.3 with SPF and DMARC (quarantine) present;
-HSTS, DNSSEC, and CAA absent.
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [ascend-advanced-therapies](https://apis.io/servers/ascend-advanced-therapies/ascend-advanced-therapies/)
+
+#### Collections (8)
+
+Postman and Open Collection request collections.
+
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-careers-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-discovery-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-media-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-oembed-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-pages-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-posts-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-search-api/)
+- [Moved to /providers/ascend-advanced-therapies/](https://apis.io/collections/ascend-advanced-therapies/open-ascend-advanced-therapies-taxonomy-api/)
+
+#### Overlays (1)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Ascend Advanced Therapies Wp Rest Overlay](https://apis.io/overlays/ascend-advanced-therapies/ascend-advanced-therapies-wp-rest-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Ascend Advanced Therapies Authentication](https://apis.io/security/ascend-advanced-therapies/ascend-advanced-therapies-authentication/)
+- [Ascend Advanced Therapies Domain Security](https://apis.io/security/ascend-advanced-therapies/ascend-advanced-therapies-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.ascend-adv.com/)
+- [Blog](https://www.ascend-adv.com/news-insights/)
+- [Terms of service](https://www.ascend-adv.com/terms-and-conditions/)
+- [Privacy policy](https://www.ascend-adv.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 17.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 25.6 |
+| Access clarity | 21.1 |
+
+**Agent readiness 6.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 19.5** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/ascend-advanced-therapies/](https://apis.io/providers/ascend-advanced-therapies/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Ascend Advanced Therapies: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/ascend-advanced-therapies/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
